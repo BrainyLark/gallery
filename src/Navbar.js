@@ -4,31 +4,31 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-transparent z-50 font-sans font-extrabold text-xs">
+    <nav className="w-full bg-transparent z-50 font-sans font-extrabold text-xs">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="text-xl font-bold text-gray-800">
-              Home Logo Placeholder
+              Urlan.mn
             </a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-300 hover:text-black transition-colors">
+            <a href="/" className="text-black transition-colors">
               🏡 НҮҮР ХУУДАС
             </a>
-            <a href="/" className="text-gray-500 hover:text-black transition-colors">
+            <a href="/" className="text-black transition-colors">
               🎨 БҮТЭЭЛҮҮД
             </a>
-            <a href="/" className="text-gray-500 hover:text-black transition-colors">
+            <a href="/" className="text-black transition-colors">
               👩‍🎨УРАН БҮТЭЭЛЧИД
             </a>
             <a href="/" className="text-emerald-500 hover:text-black transition-colors">
               🪄ЗАХИАЛГА ӨГӨХ <sup className="text-rose-600">NEW✨</sup>
             </a>
-            <a href="/" className="text-gray-500 hover:text-black transition-colors">
+            <a href="/" className="text-black transition-colors">
               📞ХОЛБОО БАРИХ
             </a>
           </div>

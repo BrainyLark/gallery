@@ -3,21 +3,17 @@ import colors from './svgs/colors.json';
 
 const Home = () => {
     return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
 
-        {/* Main Content */}
-        <div className="container mx-auto">
-            <div className="relative min-h-screen flex items-center">
-            {/* Left Side - Text Content */}
-                <div className="w-[70%] px-12 z-10">
-                    <h1 className="mb-4 text-5xl font-extrabold leading-tight text-gray-900">
-                    МАНАЙ <span className="text-9xl"><span className="text-pink-500">У</span>Р<span className="text-sky-500">Л</span><span className="text-green-500">А</span><span className="text-violet-600">Н</span><span className=""></span></span>Д ТАВТАЙ МОРИЛЖ ТААЛАН СОЁРХ!
+        <div className="container lg:flex flex-row h-screen items-center">
+            <div className="flex-1 translate-x-[0px] lg:translate-x-[100px] z-10 text-right">
+
+                <div className="z-10 right-0">
+                    <h1 className="text-6xl font-semibold text-black drop-shadow-xl">
+                    Where Personal Stories Become Masterful Portraits
                     </h1>
-                    <p className="text-xs font-extrabold font-sans text-stone-700 w-[100%]">
-                        Бидний бүтээлийг таалан соёрхож өрх гэр, 
-                        албан газрынхаа үүд, хойморт залрах зургийг сонгоорой!
-                        Хэрвээ та уран бүтээлч бол бидэнтэй хамтарч ажиллахыг
-                        урьж байна.
+                    <br />
+                    <p className="text-sm font-light font-sans text-stone-700 w-[100%]">
+                    "Discover the profound beauty of personalized art that speaks volumes without saying a word. Our skilled artists don't just paint faces – they capture souls, preserve memories, and create lasting legacies through carefully crafted brushstrokes. Whether it's a beloved family member, a power portrait for your career, or a touching tribute to someone special, we transform your vision into vibrant, emotion-filled artwork that commands attention and stirs conversations."
                     </p>
                     <br />
                     <div className="space-x-4">
@@ -30,17 +26,15 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Right Side - Image */}
-                <div className="absolute right-0 w-[70%]">
+            </div>
+            <div className="flex-1 translate-x-[0px] lg:-translate-x-[100px] left-0">
                 <Lottie 
                     animationData={colors}
                     className="w-full"
                     loop={true}
                 />
-                </div>
             </div>
         </div>
-    </div>
     );
 };
 
