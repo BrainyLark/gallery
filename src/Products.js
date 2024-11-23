@@ -5,11 +5,11 @@ const Products = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {artworks.map((artwork) => (
                     <div
                         key={artwork.id} 
-                        className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        className="bg-white rounded-3xl shadow-2xl overflow-hidden">
                         <img 
                             src={artwork.imageUrl} 
                             alt={artwork.title}
@@ -19,7 +19,7 @@ const Products = () => {
                                 {artwork.title}
                             </h3>
                             <p className="text-green-600 font-bold mb-2">
-                                {artwork.price.toLocaleString()} төгрөг
+                                ${artwork.price.toLocaleString()}
                             </p>
                             <div className="mb-2">
                             {artwork.materials.map((material, index) => (

@@ -1,10 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import productIcon from './svgs/palette.svg';
+import artistIcon from './svgs/artist.svg';
+import bulbIcon from './svgs/bulb.svg';
+import homeIcon from './svgs/home.svg';
+import telegramIcon from './svgs/telegram.svg';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      // You can adjust this value based on when you want the transition to happen
+      if (window.scrollY > 300) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="w-full bg-transparent z-50 font-sans font-extrabold text-xs">
+    <nav className={`fixed w-full bg-transparent z-50 font-sans font-extrabold text-xs 
+        ${isScrolled 
+          ? 'bg-slate-200/40 backdrop-blur-sm shadow-lg' 
+          : 'bg-transparent'
+        }" transition-all duration-150`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -16,20 +44,20 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-black transition-colors">
-              🏡 НҮҮР ХУУДАС
+            <a href="/" className="flex hover:text-gray-600">
+              <img src={homeIcon} className="w-4 h-4" alt="" />&nbsp;НҮҮР ХУУДАС
             </a>
-            <a href="/" className="text-black transition-colors">
-              🎨 БҮТЭЭЛҮҮД
+            <a href="/" className="flex hover:text-gray-600">
+              <img src={productIcon} className="w-4 h-4" alt="" />&nbsp;БҮТЭЭЛҮҮД
             </a>
-            <a href="/" className="text-black transition-colors">
-              👩‍🎨УРАН БҮТЭЭЛЧИД
+            <a href="/" className="flex hover:text-gray-600">
+              <img src={artistIcon} className="w-4 h-4" alt="" />&nbsp;УРАН БҮТЭЭЛЧИД
             </a>
-            <a href="/" className="text-emerald-500 hover:text-black transition-colors">
-              🪄ЗАХИАЛГА ӨГӨХ <sup className="text-rose-600">NEW✨</sup>
+            <a href="/" className="flex hover:text-gray-600">
+              <img src={bulbIcon} className="w-4 h-4" alt="" />&nbsp;ЗАХИАЛАХ
             </a>
-            <a href="/" className="text-black transition-colors">
-              📞ХОЛБОО БАРИХ
+            <a href="/" className="flex hover:text-gray-600">
+              <img src={telegramIcon} className="w-4 h-4" alt="" />&nbsp;ХОЛБОГДОХ
             </a>
           </div>
 
