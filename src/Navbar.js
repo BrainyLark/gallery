@@ -30,7 +30,7 @@ function Navbar() {
   return (
     <nav className={`fixed w-full bg-transparent z-50 font-sans font-extrabold text-xs 
         ${isScrolled 
-          ? 'bg-slate-200/40 backdrop-blur-sm shadow-lg' 
+          ? 'bg-slate-300/40 backdrop-blur-sm shadow-lg' 
           : 'bg-transparent'
         }" transition-all duration-150`}>
       <div className="container mx-auto px-4">
@@ -43,11 +43,11 @@ function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
             <a href="/" className="flex hover:text-gray-600">
               <img src={homeIcon} className="w-4 h-4" alt="" />&nbsp;НҮҮР ХУУДАС
             </a>
-            <a href="/" className="flex hover:text-gray-600">
+            <a href="/" className="flex hover:text-blue-600">
               <img src={productIcon} className="w-4 h-4" alt="" />&nbsp;БҮТЭЭЛҮҮД
             </a>
             <a href="/" className="flex hover:text-gray-600">

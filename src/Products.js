@@ -5,32 +5,27 @@ const Products = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {artworks.map((artwork) => (
                     <div
                         key={artwork.id} 
-                        className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                        className="bg-white shadow-2xl overflow-hidden relative group hover:cursor-pointer">
                         <img 
                             src={artwork.imageUrl} 
                             alt={artwork.title}
-                            className="w-full h-64 object-cover" />
-                        <div className="p-4">
-                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                            className="w-full h-64 object-cover relative"/>
+
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300 items-center text-center content-center">
+                            <h1 className="text-xl font-thin text-white">ДЭЛГЭРЭНГҮЙ ҮЗЭХ</h1>
+                        </div>
+
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-right">
+                            <p className="text-white text-sm font-semibold">
+                                ₮{artwork.price.toLocaleString()}
+                            </p>
+                            <h3 className="text-2xl font-light text-white">
                                 {artwork.title}
                             </h3>
-                            <p className="text-green-600 font-bold mb-2">
-                                ${artwork.price.toLocaleString()}
-                            </p>
-                            <div className="mb-2">
-                            {artwork.materials.map((material, index) => (
-                                <span key={index} className="text-sm text-gray-600">
-                                    {material}{index < artwork.materials.length - 1 ? ', ' : ''}
-                                </span>
-                            ))}
-                            </div>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                                {artwork.category}
-                            </span>
                         </div>
                     </div>
                 ))}
