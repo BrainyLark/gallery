@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import productIcon from './svgs/palette.svg';
 import artistIcon from './svgs/artist.svg';
 import bulbIcon from './svgs/bulb.svg';
-import homeIcon from './svgs/home.svg';
 import telegramIcon from './svgs/telegram.svg';
+import logoFile from './svgs/logo.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,25 +28,20 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed w-full bg-transparent z-50 font-sans font-extrabold text-xs 
+    <nav className={`fixed w-full px-28 bg-transparent z-50 text-slate-800 font-sans font-extrabold text-xs
         ${isScrolled 
-          ? 'bg-slate-200/40 backdrop-blur-sm shadow-lg' 
+          ? 'bg-white/40 backdrop-blur-sm shadow-lg' 
           : 'bg-transparent'
         }" transition-all duration-150`}>
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="text-xl font-bold text-gray-800">
-              Urlan.mn
-            </a>
+          <div className="flex-shrink-0 items-center">
+            <img src={logoFile} alt="Artisan Studio" width="200px"/>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="flex hover:text-gray-600">
-              <img src={homeIcon} className="w-4 h-4" alt="" />&nbsp;НҮҮР ХУУДАС
-            </a>
             <a href="/" className="flex hover:text-gray-600">
               <img src={productIcon} className="w-4 h-4" alt="" />&nbsp;БҮТЭЭЛҮҮД
             </a>
@@ -54,10 +49,10 @@ function Navbar() {
               <img src={artistIcon} className="w-4 h-4" alt="" />&nbsp;УРАН БҮТЭЭЛЧИД
             </a>
             <a href="/" className="flex hover:text-gray-600">
-              <img src={bulbIcon} className="w-4 h-4" alt="" />&nbsp;ЗАХИАЛАХ
+              <img src={bulbIcon} className="w-4 h-4" alt="" />&nbsp;СУРГАЛТ
             </a>
             <a href="/" className="flex hover:text-gray-600">
-              <img src={telegramIcon} className="w-4 h-4" alt="" />&nbsp;ХОЛБОГДОХ
+              <img src={telegramIcon} className="w-4 h-4" alt="" />&nbsp;КАТАЛОГ
             </a>
           </div>
 
