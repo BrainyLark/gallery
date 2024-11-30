@@ -41,7 +41,7 @@ function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
             <a href="/" className="flex hover:text-gray-600">
               <img src={productIcon} className="w-4 h-4" alt="" />&nbsp;БҮТЭЭЛҮҮД
             </a>
