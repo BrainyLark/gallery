@@ -4,7 +4,7 @@ import { artworks } from "./data/ArtworkData";
 const Products = () => {
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 bg-gradient-to-b from-slate-300 to-transparent">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {artworks.map((artwork) => (
                     <div
@@ -13,7 +13,7 @@ const Products = () => {
                         
                         <div className="relative">
                             <img 
-                                src={artwork.imageUrl} 
+                                src="http://localhost:3000/static/media/main.0c7f438af497ae370536.png" 
                                 alt={artwork.title}
                                 className="w-full h-64 object-cover" />
 

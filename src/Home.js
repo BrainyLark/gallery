@@ -4,7 +4,7 @@ import mainImg from './images/main.png';
 const Home = () => {
     return (
         <div className="flex bg-cover bg-center bg-no-repeat items-center min-h-screen w-full" style={{backgroundImage: `url(${mainImg})`}}>
-            <div className="z-10 lg:w-3/5 mx-auto p-20 bg-gradient-to-r from-transparent via-black/20 to-transparent">
+            <div className="z-10 lg:w-4/5 mx-auto px-40 py-24 bg-gradient-to-r from-transparent via-black/40 to-transparent">
                 <h1 className="mb-4 text-3xl lg:text-5xl font-extrabold drop-shadow-xl text-white">
                     "Урлаг нь уран бүтээлчийн дотоод амьдралын гадагш чиглэсэн илэрхийлэл юм."
                 </h1>

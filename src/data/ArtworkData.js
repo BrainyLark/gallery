@@ -1,16 +1,8 @@
 // ArtworkData.js
 export const artworks = [
     {
-      id: 1,
-      imageUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5",
-      title: "Abstract Harmony",
-      price: 2500000,
-      materials: ["Acrylic", "Canvas", "Gold leaf"],
-      category: "Abstract"
-    },
-    {
       id: 2,
-      imageUrl: "https://i.etsystatic.com/24531846/r/il/03bbde/4297767736/il_fullxfull.4297767736_76mq.jpg",
+      imageUrl: "./images/main.png",
       title: "Ocean Waves",
       price: 1800000,
       materials: ["Oil paint", "Canvas"],
@@ -18,7 +10,7 @@ export const artworks = [
     },
     {
       id: 3,
-      imageUrl: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4",
+      imageUrl: "./images/main.png",
       title: "Urban Dreams",
       price: 32005000,
       materials: ["Mixed media", "Wood panel"],
@@ -26,7 +18,7 @@ export const artworks = [
     },
     {
       id: 4,
-      imageUrl: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9",
+      imageUrl: "./images/main.png",
       title: "Forest Whispers",
       price: 28000000,
       materials: ["Watercolor", "Paper"],
@@ -34,7 +26,7 @@ export const artworks = [
     },
     {
       id: 5,
-      imageUrl: "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1",
+      imageUrl: "./images/main.png",
       title: "City Lights",
       price: 4200000,
       materials: ["Oil paint", "Canvas", "Metal leaf"],
@@ -42,7 +34,7 @@ export const artworks = [
     },
     {
       id: 6,
-      imageUrl: "https://i.etsystatic.com/14662136/r/il/69b0f2/2655273862/il_fullxfull.2655273862_1mk8.jpg",
+      imageUrl: "./images/main.png",
       title: "Desert Storm",
       price: 2900000,
       materials: ["Acrylic", "Canvas"],
@@ -50,7 +42,7 @@ export const artworks = [
     },
     {
       id: 7,
-      imageUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119",
+      imageUrl: "./images/main.png",
       title: "Cosmic Dance",
       price: 3008000,
       materials: ["Mixed media", "Canvas", "Resin"],
@@ -58,7 +50,7 @@ export const artworks = [
     },
     {
       id: 8,
-      imageUrl: "https://img.cdn-pictorem.com/uploads/collection/O/OO4MLK10NSG/900_GrapyArt_abstract-colorful-flowers-watercolor-painting-spring-multicolored-2-.jpg",
+      imageUrl: "./images/main.png",
       title: "Spring Bloom",
       price: 220000,
       materials: ["Oil paint", "Canvas"],
@@ -66,7 +58,7 @@ export const artworks = [
     },
     {
       id: 9,
-      imageUrl: "https://www.arthistoryproject.com/site/assets/files/17051/industrial-revolution-obelisk-art-history.jpg",
+      imageUrl: "./images/main.png",
       title: "Industrial Revolution",
       price: 3500000,
       materials: ["Metal", "Wood", "Acrylic"],
