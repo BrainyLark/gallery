@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import logoFile from './svgs/logo.png';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -6,39 +6,36 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full lg:px-24 py-3 z-50 font-light text-base text-white bg-black/30 backdrop-blur-sm">
+    <nav className="fixed w-full lg:px-24 py-6 z-50 font-light text-base uppercase text-white bg-gradient-to-b from-black to-transparent">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 items-center">
-            <a href="/"><img src={logoFile} alt="Artisan Studio" width="150px" /></a>
+            <a href="/"><img src={logoFile} alt="Artisan Studio" width="200px" /></a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
-            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
-              <i class="bi bi-easel2-fill"></i>&nbsp;&nbsp;БҮТЭЭГДЭХҮҮН
+            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
+              <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
             </a>
-            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
-              <i class="bi bi-person-bounding-box"></i>&nbsp;&nbsp;БҮТЭЭЛЧ
+            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
+              <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Бүтээлчид
             </a>
-            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
-              <i class="bi bi-palette-fill"></i>&nbsp;&nbsp;СУРГАЛТ
-            </a>
-            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
-              <i class="bi bi-info-circle-fill"></i>&nbsp;&nbsp;ТУХАЙ
+            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
+              <i className="bi bi-palette-fill"></i>&nbsp;&nbsp;Сургалт
             </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
             <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
-              <i class="bi bi-instagram"></i>
+              <i className="bi bi-instagram"></i>
             </a>
             <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
-              <i class="bi bi-facebook"></i>
+              <i className="bi bi-facebook"></i>
             </a>
             <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
-              <i class="bi bi-whatsapp"></i>
+              <i className="bi bi-whatsapp"></i>
             </a>
           </div>
 
@@ -46,11 +43,11 @@ function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="text-white hover:text-gray-900"
             >
               {!isOpen ? (
                 <svg
-                  className="h-6 w-6"
+                  className="h-8 w-8"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -80,36 +77,40 @@ function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-transparent">
               <a
                 href="/"
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-white"
               >
-                Home
+                <i className="bi bi-house-fill"></i>&nbsp;&nbsp;Нүүр Хуудас
               </a>
               <a
                 href="/about"
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-white"
               >
-                About
+                <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
               </a>
               <a
                 href="/services"
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-white"
               >
-                Services
+                <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Уран бүтээлч
               </a>
               <a
                 href="/portfolio"
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-white"
               >
-                Portfolio
+                <i className="bi bi-info-circle-fill"></i>&nbsp;&nbsp;Бидний тухай
               </a>
-              <a
-                href="/contact"
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Contact
+
+              <a href="/" className="block px-3 py-2 rounded-md text-white">
+                <i className="bi bi-instagram"></i>&nbsp;&nbsp;Instagram
+              </a>
+              <a href="/" className="block px-3 py-2 rounded-md text-white">
+                <i className="bi bi-facebook"></i>&nbsp;&nbsp;Facebook
+              </a>
+              <a href="/" className="block px-3 py-2 rounded-md text-white">
+                <i className="bi bi-whatsapp"></i>&nbsp;&nbsp;Whatsapp
               </a>
             </div>
           </div>
