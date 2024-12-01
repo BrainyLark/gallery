@@ -29,13 +29,11 @@ const Home = () => {
                     <h1 className="mb-4 text-xl lg:text-6xl font-extrabold drop-shadow-xl text-white">
                         "If you could say it in words, there would be no reason to paint."
                     </h1>
-                    <h2 className="mb-8 text-white font-extrabold text-lg text-right">Edward Hopper (1882-1967)</h2>
-                    <div className="flex-1 space-x-4">
-                        <button className="text-white uppercase text-base bg-rose-600 p-4 hover:bg-white/50 hover:text-black transition-colors drop-shadow-xl duration-200" type="button">
-                            <span className="font-light">Бидний тухай</span>
+                    <h2 className="mb-8 text-white font-extrabold text-2xl text-right">Edward Hopper (1882-1967)</h2>
+                    <div className="flex-1 space-x-8">
+                        <button className="text-white uppercase text-xl font-extralight bg-transparent p-5 border border-white hover:bg-white hover:text-black transition-colors duration-200" type="button">Бидний тухай
                         </button>
-                        <button className="text-white uppercase text-base bg-indigo-600 p-4 drop-shadow-xl hover:bg-white/50 hover:text-black transition-colors duration-200" type="button">
-                            <span className="font-light">Бүтээлүүд үзэх</span>
+                        <button className="text-white uppercase text-xl font-extralight bg-transparent p-5 border border-white hover:bg-white hover:text-black transition-colors duration-200" type="button">Бүтээлүүд үзэх
                         </button>
                     </div>
                 </div>
