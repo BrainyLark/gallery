@@ -4,6 +4,7 @@ import img1 from './images/image-1.jpg';
 import img2 from './images/image-2.jpg';
 import img3 from './images/image-3.jpg';
 import img4 from './images/image-4.jpg';
+import img5 from './images/image-5.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Products from './Products';
 
@@ -14,6 +15,7 @@ const Home = () => {
         `url(${img2})`,
         `url(${img3})`,
         `url(${img4})`,
+        `url(${img5})`,
     ];
 
     const [currentImage, setCurrentImage] = useState(0);
@@ -21,7 +23,7 @@ const Home = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 6000);
+        }, 2000);
 
         return () => clearInterval(interval);
     });

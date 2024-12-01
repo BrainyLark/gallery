@@ -1,5 +1,6 @@
 import React from "react";
 import { artworks } from "./data/ArtworkData";
+import mainImg from './images/main.png';
 
 const Products = () => {
 
@@ -13,7 +14,7 @@ const Products = () => {
                         
                         <div className="relative">
                             <img 
-                                src="http://localhost:3000/static/media/main.0c7f438af497ae370536.png" 
+                                src={mainImg}
                                 alt={artwork.title}
                                 className="w-full h-64 object-cover" />
 

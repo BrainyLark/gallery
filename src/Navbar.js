@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
-import logoFile from './svgs/logo.png';
 import logoBlackFile from './svgs/logo_black.png';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+import { useLocation } from 'react-router-dom';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const location = useLocation();
+  const textWhite = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 100;
@@ -18,14 +23,14 @@ function Navbar() {
   return (
     <nav className={`fixed w-full py-2 lg:px-24 z-50 font-extralight text-lg uppercase transition-all duration-300
     ${scrolled
-      ? 'bg-slate-800/40 text-white backdrop-blur-sm'
-      : 'bg-transparent'
+      ? 'bg-white/40 backdrop-blur-sm'
+      : textWhite ? 'bg-transparent text-white' : 'bg-transparent'
     }`}>
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 items-center">
-            <a href="/"><img src={scrolled ? logoFile : logoBlackFile} alt="Artisan Studio" width="150px" /></a>
+            <a href="/"><img src={logoBlackFile} alt="Artisan Studio" width="150px" /></a>
           </div>
 
           {/* Desktop Menu */}

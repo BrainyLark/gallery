@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Atelier from './pages/Atelier';
 
 function App() {
+
   return (
     <BrowserRouter>
       <div className="App">
