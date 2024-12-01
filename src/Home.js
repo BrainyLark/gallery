@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import mainImg from './images/main.png';
 import img2 from './images/image-2.jpeg';
 import img5 from './images/image-5.jpg';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Home = () => {
 
@@ -26,14 +27,14 @@ const Home = () => {
         <div className="flex bg-cover bg-center bg-no-repeat items-end min-h-screen w-full bg-fixed" style={{backgroundImage: images[currentImage] }}>
             <div className="z-10 min-w-full bg-gradient-to-t from-black to-transparent">
                 <div className="lg:w-2/3 mx-auto mb-16">
-                    <h1 className="mb-4 text-xl lg:text-6xl font-extrabold drop-shadow-xl text-white">
-                        "If you could say it in words, there would be no reason to paint."
+                    <h1 className="mb-4 text-2xl lg:text-7xl font-light font-serif drop-shadow-xl text-white">
+                        "If you could say it in <span className="text-yellow-300">words</span>, there would be no reason to <span className="text-sky-300">paint</span>."
                     </h1>
-                    <h2 className="mb-8 text-white font-extrabold text-2xl text-right">Edward Hopper (1882-1967)</h2>
+                    <h2 className="mb-8 text-white font-extralight text-2xl text-right">Edward Hopper (1882-1967)</h2>
                     <div className="flex-1 space-x-8">
-                        <button className="text-white uppercase text-xl font-extralight bg-transparent p-5 border border-white hover:bg-white hover:text-black transition-colors duration-200" type="button">Бидний тухай
+                        <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button"><i className="bi bi-info-circle"></i>&nbsp;&nbsp;Бидний тухай
                         </button>
-                        <button className="text-white uppercase text-xl font-extralight bg-transparent p-5 border border-white hover:bg-white hover:text-black transition-colors duration-200" type="button">Бүтээлүүд үзэх
+                        <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button"><i className="bi bi-easel"></i>&nbsp;&nbsp;Бүтээлүүд үзэх
                         </button>
                     </div>
                 </div>

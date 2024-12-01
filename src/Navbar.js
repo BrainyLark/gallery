@@ -16,13 +16,13 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
-            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
+            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
               <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
             </a>
-            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
-              <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Хамтрагчид
+            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
+              <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Захиалга
             </a>
-            <a href="/" className="flex hover:-rotate-12 duration-300 transition-transform">
+            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
               <i className="bi bi-palette-fill"></i>&nbsp;&nbsp;Сургалт
             </a>
           </div>
