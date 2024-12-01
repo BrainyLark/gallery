@@ -1,28 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logoFile from './svgs/logo.png';
+import logoBlackFile from './svgs/logo_black.png';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 100;
+      setScrolled(isScrolled);
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed w-full lg:px-24 py-4 z-50 font-light text-base uppercase text-white bg-gradient-to-b from-black/50 to-transparent">
+    <nav className={`fixed w-full py-2 lg:px-24 z-50 font-extralight text-lg uppercase transition-all duration-300
+    ${scrolled
+      ? 'bg-slate-800/40 text-white backdrop-blur-sm'
+      : 'bg-transparent'
+    }`}>
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 items-center">
-            <a href="/"><img src={logoFile} alt="Artisan Studio" width="200px" /></a>
+            <a href="/"><img src={scrolled ? logoFile : logoBlackFile} alt="Artisan Studio" width="150px" /></a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
-            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
+            <a href="/" className="flex">
               <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
             </a>
-            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
-              <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Захиалга
+            <a href="/" className="flex">
+              <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Уран бүтээлчид
             </a>
-            <a href="/" className="flex hover:text-slate-300 transition-colors duration-200">
+            <a href="/" className="flex">
               <i className="bi bi-palette-fill"></i>&nbsp;&nbsp;Сургалт
             </a>
           </div>

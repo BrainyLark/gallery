@@ -1,17 +1,19 @@
 import React from "react";
 import {useState, useEffect} from 'react';
-import mainImg from './images/main.png';
-import img2 from './images/image-2.jpeg';
-import img5 from './images/image-5.jpg';
+import img1 from './images/image-1.jpg';
+import img2 from './images/image-2.jpg';
+import img3 from './images/image-3.jpg';
+import img4 from './images/image-4.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Products from './Products';
 
 const Home = () => {
 
     const images = [
-        `url(${mainImg})`,
+        `url(${img1})`,
         `url(${img2})`,
-        `url(${img5})`,
+        `url(${img3})`,
+        `url(${img4})`,
     ];
 
     const [currentImage, setCurrentImage] = useState(0);
@@ -19,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 3000);
+        }, 6000);
 
         return () => clearInterval(interval);
     });
