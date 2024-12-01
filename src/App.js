@@ -1,22 +1,22 @@
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
-import Products from './Products';
 import Footer from './Footer';
+import About from './pages/About';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Home />
-      <h1 className="font-thin drop-shadow-xl text-4xl capitalize mb-8 mt-8">Сүүлд нэмэгдсэн</h1>
-      <Products />
-      <h1 className="font-thin drop-shadow-xl capitalize text-4xl mb-8">Онцлох бүтээлүүд</h1>
-      <Products />
-      <h1 className="font-thin drop-shadow-2xl capitalize text-4xl mb-8">Категори</h1>
-      <Products />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

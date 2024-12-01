@@ -13,7 +13,7 @@ const Footer = () => {
                 <p><i className="bi bi-envelope-at"></i> &nbsp;&nbsp; info@artisan.mn</p>
                 <p><i className="bi bi-telephone"></i> &nbsp;&nbsp; (+976) 8550-0442, 8914-1700</p>
                 <p><i className="bi bi-pin-angle"></i> &nbsp;&nbsp; 84-3-22, 25-р хороо, БЗД, Улаанбаатар хот</p>
-                <p>&copy; &nbsp;&nbsp; 2024 Artisan Studio Mongolia</p>
+                <p>&copy; &nbsp;&nbsp; 2024 Artisan Studio Mongolia All rights reserved.</p>
             </div>
             <div className="flex-1 flex flex-col text-left space-y-5 mx-auto">
                 <a href="/"><i className="bi bi-info-circle"></i> &nbsp;&nbsp; Бидний тухай</a>

@@ -6,7 +6,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full lg:px-24 py-6 z-50 font-light text-base uppercase text-white bg-gradient-to-b from-black/50 to-transparent">
+    <nav className="fixed w-full lg:px-24 py-4 z-50 font-light text-base uppercase text-white bg-gradient-to-b from-black/50 to-transparent">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
