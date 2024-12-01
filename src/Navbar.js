@@ -1,28 +1,44 @@
 import { useState, useEffect } from 'react';
 import logoFile from './svgs/logo.png';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full px-24 py-3 z-50 text-black font-bold text-base bg-gray-400/20">
-      <div className="container mx-auto px-4">
+    <nav className="fixed w-full lg:px-24 py-3 z-50 font-light text-base text-white bg-black/30 backdrop-blur-sm">
+      <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 items-center">
-            <img src={logoFile} alt="Artisan Studio" width="150px" href="#" />
+            <a href="/"><img src={logoFile} alt="Artisan Studio" width="150px" /></a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
+            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
+              <i class="bi bi-easel2-fill"></i>&nbsp;&nbsp;БҮТЭЭГДЭХҮҮН
+            </a>
+            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
+              <i class="bi bi-person-bounding-box"></i>&nbsp;&nbsp;БҮТЭЭЛЧ
+            </a>
+            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
+              <i class="bi bi-palette-fill"></i>&nbsp;&nbsp;СУРГАЛТ
+            </a>
+            <a href="/" className="flex hover:-translate-y-2 duration-200 transition-transform">
+              <i class="bi bi-info-circle-fill"></i>&nbsp;&nbsp;ТУХАЙ
+            </a>
+          </div>
+
+          <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
             <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
-            БҮТЭЭЛҮҮД
+              <i class="bi bi-instagram"></i>
             </a>
-            <a href="/" className="flex hover:text-gray-600">
-            УРАН БҮТЭЭЛЧИД
+            <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
+              <i class="bi bi-facebook"></i>
             </a>
-            <a href="/" className="flex hover:text-gray-600">
-            СУРГАЛТ
+            <a href="/" className="flex hover:text-gray-600 drop-shadow-xl">
+              <i class="bi bi-whatsapp"></i>
             </a>
           </div>
 

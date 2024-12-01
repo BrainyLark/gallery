@@ -4,7 +4,7 @@ import { artworks } from "./data/ArtworkData";
 const Products = () => {
 
     return (
-        <div className="container mx-auto px-4 py-8 bg-gradient-to-b from-slate-300 to-transparent">
+        <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {artworks.map((artwork) => (
                     <div
