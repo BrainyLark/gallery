@@ -7,6 +7,7 @@ import img4 from './images/image-4.jpg';
 import img5 from './images/image-5.jpg';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Products from './Products';
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -23,7 +24,7 @@ const Home = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 2000);
+        }, 10000);
 
         return () => clearInterval(interval);
     });
@@ -38,10 +39,18 @@ const Home = () => {
                         </h1>
                         <h2 className="mb-8 text-white font-extralight text-2xl text-right">Edward Hopper (1882-1967)</h2>
                         <div className="flex-1 space-x-8">
-                            <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button"><i className="bi bi-info-circle"></i>&nbsp;&nbsp;Бидний тухай
-                            </button>
-                            <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button"><i className="bi bi-easel"></i>&nbsp;&nbsp;Бүтээлүүд үзэх
-                            </button>
+                            <Link to="/about">    
+                                <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button">
+                                    <i className="bi bi-info-circle"></i>&nbsp;&nbsp;Бидний тухай
+                                </button>
+                            </Link>
+                            <Link to="/products">
+                            
+                                <button className="text-white uppercase text-sm lg:text-xl font-extralight bg-transparent p-4 border border-white hover:bg-white rounded-full hover:text-black transition-colors duration-200" type="button"><i className="bi bi-easel">
+                                    </i>&nbsp;&nbsp;Бүтээлүүд үзэх
+                                </button>
+
+                            </Link>
                         </div>
                     </div>
                 </div>

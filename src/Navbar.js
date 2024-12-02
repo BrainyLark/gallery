@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import logoBlackFile from './svgs/logo_black.png';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from 'react-router-dom';
 
 import { useLocation } from 'react-router-dom';
 
@@ -35,15 +36,15 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
-            <a href="/" className="flex">
+            <Link to="/products">
               <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
-            </a>
-            <a href="/" className="flex">
+            </Link>
+            <Link to="/artists">
               <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Уран бүтээлчид
-            </a>
-            <a href="/" className="flex">
+            </Link>
+            <Link to="/atelier">
               <i className="bi bi-palette-fill"></i>&nbsp;&nbsp;Сургалт
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
