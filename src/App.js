@@ -4,10 +4,11 @@ import Home from './Home';
 import Footer from './Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Regulations from './pages/Regulations';
+import Terms from './pages/Terms';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Atelier from './pages/Atelier';
 import Products from './components/Products';
+import Privacy from './pages/Privacy';
 import Artists from './components/Artists';
 import ProductDetails from './components/ProductDetails';
 import ArtistDetails from './components/ArtistDetails';
@@ -26,8 +27,9 @@ function App() {
           <Route path="/products" element={<Products/>}></Route>
           <Route path="/product/:id" element={<ProductDetails/>}></Route>
           <Route path="/contact" element={<Contact/>}></Route>
-          <Route path="/legalhub" element={<Regulations/>}></Route>
+          <Route path="/terms" element={<Terms/>}></Route>
           <Route path="/atelier" element={<Atelier/>}></Route>
+          <Route path="/privacy" element={<Privacy/>}></Route>
         </Routes>
         <Footer />
       </div>

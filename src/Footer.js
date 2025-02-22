@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./svgs/logo.png";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return(
         <footer className="bg-slate-900 text-white p-24">
@@ -12,17 +14,17 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <p>Чингэлтэй дүүрэг, 6-р хороо, Чингисийн Музейн</p>
-                        <p>баруун талд Наран Пойнт 3 давхар 28 тоот</p>
+                        <p>Чингэлтэй дүүрэг, 4-р хороо, Чингисийн Музейн</p>
+                        <p>баруун талд 9-р байр, 4-р орц, 28 тоот</p>
                     </div>
 
                     <div>
-                        <p>Утас 89141700, 80054770</p>
-                        <p>И-Мэйл info@lumineira.art</p>
+                        <p>Утас: 89141700, 85500442</p>
+                        <p>И-Мэйл: info@artstore.mn</p>
                     </div>
 
                     <div>
-                        <p>&copy; 2025. Luminaire Atelier Studio</p>
+                        <p>&copy; 2025. Art Store Atelier Studio</p>
                     </div>
                 </div>
 
@@ -30,22 +32,22 @@ const Footer = () => {
                     <div className="text-xs text-left">
                         <h3 className="font-semibold mb-4">Категори</h3>
                         <ul>
-                            <li className="mb-2"><a href="#">Байгаль /Nature/</a></li>
-                            <li className="mb-2"><a href="#">Хийсвэр /Abstract/</a></li>
-                            <li className="mb-2"><a href="#">Хөрөг /Portrait/</a></li>
-                            <li className="mb-2"><a href="#">Сүсэг бишрэл /Religious/</a></li>
-                            <li className="mb-2"><a href="#">Хэвлэл /Printing/</a></li>
-                            <li className="mb-2"><a href="#">Фото /Photography/</a></li>
+                            <li className="mb-2"><Link to="/products">Байгаль /Nature/</Link></li>
+                            <li className="mb-2"><Link to="/products">Хийсвэр /Abstract/</Link></li>
+                            <li className="mb-2"><Link to="/products">Хөрөг /Portrait/</Link></li>
+                            <li className="mb-2"><Link to="/products">Сүсэг бишрэл /Religious/</Link></li>
+                            <li className="mb-2"><Link to="/products">Хэвлэл /Printing/</Link></li>
+                            <li className="mb-2"><Link to="/products">Фото /Photography/</Link></li>
                         </ul>
                     </div>
                     <div className="text-xs text-left">
                         <h3 className="font-semibold mb-4">Үйл ажиллагаа</h3>
                         <ul>
-                            <li className="mb-2"><a href="#">Бид хэн бэ?</a></li>
-                            <li className="mb-2"><a href="#">Үйлчилгээний нөхцөл</a></li>
-                            <li className="mb-2"><a href="#">Уран зургийн сургалт</a></li>
-                            <li className="mb-2"><a href="#">Бидэнтэй холбоо барих</a></li>
-                            <li className="mb-2"><a href="#">Нууцлалын бодлого</a></li>
+                            <li className="mb-2"><Link to="/about">Бид хэн бэ?</Link></li>
+                            <li className="mb-2"><Link to="/terms">Үйлчилгээний нөхцөл</Link></li>
+                            <li className="mb-2"><Link to="/atelier">Уран зургийн сургалт</Link></li>
+                            <li className="mb-2"><Link to="/contact">Бидэнтэй холбоо барих</Link></li>
+                            <li className="mb-2"><Link to="/privacy">Нууцлалын бодлого</Link></li>
                         </ul>
                     </div>
                 </div>
