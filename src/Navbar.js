@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import logoFile from './svgs/logo.png';
 import logoBlackFile from './svgs/logo_black.png';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
@@ -31,7 +32,7 @@ function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 items-center">
-            <a href="/"><img src={logoBlackFile} alt="Artisan Studio" width="150px" /></a>
+            <a href="/"><img src={textWhite & !scrolled ? logoFile : logoBlackFile } alt="Artisan Studio" width="150px" /></a>
           </div>
 
           {/* Desktop Menu */}
