@@ -7,8 +7,15 @@ const Atelier = () => {
     }, []);
     
     return (
-        <div className="flex bg-transparent min-h-screen items-center">
-            <h1 className="text-5xl font-extralight font-serif mx-auto">This is apprenticeship, please welcome!</h1>
+        <div className="container mx-auto">
+            <div className="grid grid-cols-5">
+                <div className="col-span-5 col-start-1 px-5 md:col-span-3 md:col-start-2 md:px-0">
+                    <div className="flex flex-col space-y-4 my-32 text-justify">
+                        <h1 className="font-thin text-5xl">Уран зургийн сургалт</h1>
+                        <p className="font-light text-base">Одоогоор тодорхой мэдээлэл хараахан байхгүй байна.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

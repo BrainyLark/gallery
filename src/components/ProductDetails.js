@@ -1,5 +1,76 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const ImageMagnifier = ({ src, width, height, magnifierHeight = 250, magnifierWidth = 250, zoomLevel = 2.5 }) => {
+    const [[x, y], setXY] = useState([0, 0]);
+    const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
+    const [showMagnifier, setShowMagnifier] = useState(false);
+  
+    return (
+      <div
+        style={{
+          position: "relative",
+          height: height,
+          width: width
+        }}
+      >
+        <img
+          src={src}
+          style={{ height: height, width: width }}
+          onMouseEnter={(e) => {
+            // Update image size and turn on magnifier
+            const elem = e.currentTarget;
+            const { width, height } = elem.getBoundingClientRect();
+            setSize([width, height]);
+            setShowMagnifier(true);
+          }}
+          onMouseMove={(e) => {
+            // Update cursor position
+            const elem = e.currentTarget;
+            const { top, left } = elem.getBoundingClientRect();
+  
+            // Calculate cursor position on the image
+            const x = e.pageX - left - window.pageXOffset;
+            const y = e.pageY - top - window.pageYOffset;
+            setXY([x, y]);
+          }}
+          onMouseLeave={() => {
+            // Turn off magnifier
+            setShowMagnifier(false);
+          }}
+          alt={'img'}
+          className="cursor-none mx-auto"
+        />
+  
+        {showMagnifier && (
+          <div
+            style={{
+              position: "absolute",
+              // prevent magnifier blocks the mousemove event of img
+              pointerEvents: "none",
+              // set size of magnifier
+              height: `${magnifierHeight}px`,
+              width: `${magnifierWidth}px`,
+              // move element center to cursor
+              top: `${y - magnifierHeight / 2}px`,
+              left: `${x - magnifierWidth / 2}px`,
+              opacity: "1", // reduce opacity so you can verify position
+              border: "1px solid lightgray",
+              backgroundColor: "white",
+              backgroundImage: `url('${src}')`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel}px`,
+              backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
+              backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
+              borderRadius: "0%",
+            }}
+          ></div>
+        )}
+      </div>
+    );
+  };
+  
+
 const ProductDetails = () => {
 
     useEffect(() => {
@@ -8,10 +79,6 @@ const ProductDetails = () => {
 
     const location = useLocation();
     const { product } = location.state || {};
-
-    if (!product) {
-        return <div>Product not found or no product data passed.</div>;
-    }
 
     return (
         <div className="container mx-auto">
@@ -33,10 +100,12 @@ const ProductDetails = () => {
                             <p className="text-lg font-light">Хэмжээ: {product.width} &#215; {product.height}</p>
                         </div>
                         <div className="w-full">
-                            <img 
+                            <ImageMagnifier
                                 src={product.image} 
-                                alt={product.title} 
                                 className="lg:w-3/5 w-full mx-auto h-auto shadow-lg"
+                                magnifierHeight={120}
+                                magnifierWidth={120}
+                                zoomLevel={2.5}
                             />
                         </div>
                         <div className="border border-red-700 rounded-xl p-3">

@@ -106,19 +106,19 @@ function Navbar() {
                 <i className="bi bi-house-fill"></i>&nbsp;&nbsp;Нүүр Хуудас
               </a>
               <a
-                href="/about"
+                href="/products"
                 className="block px-3 py-2 rounded-md text-white"
               >
                 <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
               </a>
               <a
-                href="/services"
+                href="/artists"
                 className="block px-3 py-2 rounded-md text-white"
               >
                 <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Уран бүтээлч
               </a>
               <a
-                href="/portfolio"
+                href="/about"
                 className="block px-3 py-2 rounded-md text-white"
               >
                 <i className="bi bi-info-circle-fill"></i>&nbsp;&nbsp;Бидний тухай
