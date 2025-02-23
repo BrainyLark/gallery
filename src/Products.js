@@ -1,9 +1,5 @@
 import {React, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-
-import { artworks } from "./data/ArtworkData";
-
-import mainImg from './images/main.png';
 import axios from "axios";
 
 const Products = () => {
@@ -59,7 +55,7 @@ const Products = () => {
                                 <h3 className="text-xl font-light text-white">
                                     {product.title}
                                 </h3>
-                                <p className="text-white text-xs">₮{product.price.toLocaleString()}</p>
+                                <p className="text-white text-xs">{Number(product.price).toLocaleString("mn-MN", {style:"currency", currency:"MNT"})}</p>
                             </div>
                         </div>
                     </div>
