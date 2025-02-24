@@ -55,9 +55,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <h1 className="font-extrabold drop-shadow-xl text-3xl mb-8 mt-8">Онцлох бүтээлүүд</h1>
-            <Products />
-            <h1 className="font-extrabold drop-shadow-xl text-3xl mb-8">Сүүлд нэмэгдсэн бүтээлүүд</h1>
             <Products />
         </div>
     );

@@ -4,76 +4,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { RingLoader } from "react-spinners";
 
-const ImageMagnifier = ({ src, width, height, magnifierHeight = 250, magnifierWidth = 250, zoomLevel = 2.5 }) => {
-    const [[x, y], setXY] = useState([0, 0]);
-    const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
-    const [showMagnifier, setShowMagnifier] = useState(false);
-  
-    return (
-      <div
-        style={{
-          position: "relative",
-          height: height,
-          width: width
-        }}
-      >
-        <img
-          src={src}
-          style={{ height: height, width: width }}
-          onMouseEnter={(e) => {
-            // Update image size and turn on magnifier
-            const elem = e.currentTarget;
-            const { width, height } = elem.getBoundingClientRect();
-            setSize([width, height]);
-            setShowMagnifier(true);
-          }}
-          onMouseMove={(e) => {
-            // Update cursor position
-            const elem = e.currentTarget;
-            const { top, left } = elem.getBoundingClientRect();
-  
-            // Calculate cursor position on the image
-            const x = e.pageX - left - window.pageXOffset;
-            const y = e.pageY - top - window.pageYOffset;
-            setXY([x, y]);
-          }}
-          onMouseLeave={() => {
-            // Turn off magnifier
-            setShowMagnifier(false);
-          }}
-          alt={'img'}
-          className="cursor-none mx-auto"
-        />
-  
-        {showMagnifier && (
-          <div
-            style={{
-              position: "absolute",
-              // prevent magnifier blocks the mousemove event of img
-              pointerEvents: "none",
-              // set size of magnifier
-              height: `${magnifierHeight}px`,
-              width: `${magnifierWidth}px`,
-              // move element center to cursor
-              top: `${y - magnifierHeight / 2}px`,
-              left: `${x - magnifierWidth / 2}px`,
-              opacity: "1", // reduce opacity so you can verify position
-              border: "1px solid lightgray",
-              backgroundColor: "white",
-              backgroundImage: `url('${src}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel}px`,
-              backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
-              backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
-              borderRadius: "0%",
-            }}
-          ></div>
-        )}
-      </div>
-    );
-  };
-  
-
 const ProductDetails = () => {
 
     useEffect(() => {
@@ -138,7 +68,7 @@ const ProductDetails = () => {
                             <img src={product.artist.profile} alt="Profile" className="w-10 h-10" />
                             <div className="flex flex-col">
                                 <p className="text-sm font-light">Уран бүтээлч | Зураач | <i className="bi bi-image"></i></p>
-                                <p className="text-base font-normal text-black hover:cursor-pointer" onClick={() => handleArtistClick(product.artist.id)}><i className="bi bi-hand-index"></i>&nbsp;{product.artist.name}</p>
+                                <p className="text-base font-light text-black hover:cursor-pointer" onClick={() => handleArtistClick(product.artist.id)}><i className="bi bi-at"></i>{product.artist.name}</p>
                             </div>
                         </div>
                         <div className="flex flex-row gap-4 items-center">
@@ -148,12 +78,10 @@ const ProductDetails = () => {
                             <p className="text-lg font-light">Хэмжээ: {product.width} &#215; {product.height}</p>
                         </div>
                         <div className="w-full">
-                            <ImageMagnifier
+                            <img
                                 src={product.image} 
-                                className="lg:w-3/5 w-full mx-auto h-auto shadow-lg"
-                                magnifierHeight={120}
-                                magnifierWidth={120}
-                                zoomLevel={2.5}
+                                className="w-full mx-auto h-auto shadow-lg"
+								alt={product.title}
                             />
                         </div>
                         <div className="border border-red-700 rounded-xl p-3">

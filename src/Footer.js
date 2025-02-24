@@ -10,21 +10,21 @@ const Footer = () => {
             <div className="flex flex-col md:grid md:grid-cols-4 gap-8">
                 <div className="md:col-span-2 flex flex-col gap-4 text-xs">
                     <div className="mx-auto">
-                        <img src={logo} alt="" className="w-56 h-24" />
+                        <img src={logo} alt="ArtDeco Logo" className="w-56 h-24" />
                     </div>
 
                     <div>
-                        <p>Чингэлтэй дүүрэг, 4-р хороо, Чингисийн Музейн</p>
+                        <p><i className="bi bi-pin-angle-fill"></i>&nbsp;Чингэлтэй дүүрэг, 4-р хороо, Чингисийн Музейн</p>
                         <p>баруун талд 9-р байр, 4-р орц, 28 тоот</p>
                     </div>
 
                     <div>
-                        <p>Утас: 89141700, 85500442</p>
-                        <p>И-Мэйл: info@artstore.mn</p>
+                        <p><i className="bi bi-telephone-fill"></i>&nbsp;(+976) 8550-0442, 8914-1700</p>
+                        <p><i className="bi bi-envelope-at-fill"></i>&nbsp;info@urlan.co</p>
                     </div>
 
                     <div>
-                        <p>&copy; 2025. Art Store Atelier Studio</p>
+                        <p>&copy; 2025. Art Deco Mongolia | All Rights Reserved</p>
                     </div>
                 </div>
 

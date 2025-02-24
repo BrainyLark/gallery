@@ -60,6 +60,7 @@ const Artists = () => {
 
     return (
         <div className="container mx-auto px-4 py-32">
+            <h1 className="font-thin text-3xl mb-6">Уран бүтээлчид</h1>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {artists.map((artist) => (
                     <div
