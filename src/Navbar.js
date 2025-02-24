@@ -38,7 +38,7 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 drop-shadow-xl">
             <Link to="/products">
-              <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
+              <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Уран бүтээл
             </Link>
             <Link to="/artists">
               <i className="bi bi-person-bounding-box"></i>&nbsp;&nbsp;Уран бүтээлчид
@@ -109,7 +109,7 @@ function Navbar() {
                 href="/products"
                 className="block px-3 py-2 rounded-md text-white"
               >
-                <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Бүтээгдэхүүн
+                <i className="bi bi-easel2-fill"></i>&nbsp;&nbsp;Уран бүтээл
               </a>
               <a
                 href="/artists"

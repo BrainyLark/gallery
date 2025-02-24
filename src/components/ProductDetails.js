@@ -1,5 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { RingLoader } from "react-spinners";
 
 const ImageMagnifier = ({ src, width, height, magnifierHeight = 250, magnifierWidth = 250, zoomLevel = 2.5 }) => {
     const [[x, y], setXY] = useState([0, 0]);
@@ -77,8 +80,53 @@ const ProductDetails = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const location = useLocation();
-    const { product } = location.state || {};
+    const navigate = useNavigate();
+    const handleArtistClick = (artistId) => {
+      navigate(`/artist/${artistId}`);
+    }
+
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const { id } = useParams();
+
+    useEffect(() => {
+      const fetchProduct = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get(`http://localhost:8000/products/${id}`);
+            setProduct(response.data);
+        } catch (error) {
+            console.error('Error fetching artist:', error);
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+      };
+      fetchProduct();
+    }, [id]);
+
+    if (loading) {
+      return (
+        <div className="flex min-h-screen">
+            <RingLoader
+                color="#000000"
+                size={150}
+                className="m-auto"
+            />
+        </div>
+      );
+    }
+
+    if (error) {
+        return (
+          <div className="flex min-h-screen px-32">
+              <div className="m-auto text-center font-normal text-base text-red-600">
+                Уучлаарай, техникийн алдаа гарлаа: {error}
+              </div>
+          </div>
+      );
+    }
 
     return (
         <div className="container mx-auto">
@@ -89,8 +137,8 @@ const ProductDetails = () => {
                         <div className="flex flex-row gap-2">
                             <img src={product.artist.profile} alt="Profile" className="w-10 h-10" />
                             <div className="flex flex-col">
-                                <p className="text-xs font-bold">Уран бүтээлчийн нэр</p>
-                                <p className="text-base font-light">{product.artist.name}</p>
+                                <p className="text-sm font-light">Уран бүтээлч | Зураач | <i className="bi bi-image"></i></p>
+                                <p className="text-base font-normal text-black hover:cursor-pointer" onClick={() => handleArtistClick(product.artist.id)}><i className="bi bi-hand-index"></i>&nbsp;{product.artist.name}</p>
                             </div>
                         </div>
                         <div className="flex flex-row gap-4 items-center">
@@ -114,7 +162,7 @@ const ProductDetails = () => {
                         </div>
                         <div className="border border-black rounded-xl p-3">
                             <h1 className="text-lg font-medium">Уран бүтээлийн дэлгэрэнгүй</h1>
-                            <p className="text-lg font-extralight text-justify">{product.description}</p>
+                            <p className="text-sm font-extralight text-justify">{product.description}</p>
                         </div>
                     </div>
                 </div>

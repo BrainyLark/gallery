@@ -2,38 +2,63 @@ import {React, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { RingLoader } from "react-spinners";
+
 const Products = () => {
 
     const navigate = useNavigate();
-    const handleClick = (product) => {
-        navigate(`/product/${product.id}`, { "state": { "product": product } });
+    const handleClick = (productId) => {
+        navigate(`/product/${productId}`);
     };
 
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [totalPages, setTotalPages] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const fetchProducts = async (pageNumber) => {
-        try {
-            setLoading(true);
-            const response = await axios.get(`http://localhost:8000/products?page=${pageNumber}`);
-            setProducts(response.data.results);
-            setTotalPages(Math.ceil(response.data.count / 8));
-            setLoading(false);
-        } catch (error) {
-            console.error('Error fetching products:', error);
-            setLoading(false);
-        }
-    }
-
     useEffect(() => {
+
+        const fetchProducts = async (pageNumber) => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`http://localhost:8000/products?page=${pageNumber}`);
+                setProducts(response.data.results);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+
         fetchProducts(currentPage);
     }, [currentPage]);
 
-    const handlePageChange = (pageNumber) => {
+    /* const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
-    };
+    };*/
+
+    if (loading) {
+        return (
+        <div className="flex min-h-screen">
+            <RingLoader
+                color="#000000"
+                size={150}
+                className="m-auto"
+            />
+        </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex min-h-screen px-32">
+                <div className="m-auto text-center font-normal text-base text-red-600">
+                    Уучлаарай, техникийн алдаа гарлаа: {error}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -41,7 +66,7 @@ const Products = () => {
                 {products.map((product) => (
                     <div
                         key={product.id}
-                        onClick={() => handleClick(product)}
+                        onClick={() => handleClick(product.id)}
                         className="bg-white shadow-2xl overflow-hidden relative group hover:cursor-pointer">
                         
                         <div className="relative">

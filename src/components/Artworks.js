@@ -9,7 +9,7 @@ const Artworks = () => {
     return(
         <div className="flex flex-col gap-2">
             <div className="my-32">
-                <h1 className="font-thin text-5xl">Уран бүтээлүүд</h1>
+                <h1 className="font-thin text-4xl text-left pl-10">Уран бүтээлүүд</h1>
                 <Products />
             </div>
         </div>

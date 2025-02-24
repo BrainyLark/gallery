@@ -2,6 +2,7 @@ import {React, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { RingLoader } from "react-spinners";
 
 const Artists = () => {
 
@@ -15,16 +16,18 @@ const Artists = () => {
     };
 
     const [artists, setArtists] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     const fetchArtists = async () => {
         try {
             setLoading(true);
             const response = await axios.get("http://localhost:8000/artists");
             setArtists(response.data.results);
-            setLoading(false);
         } catch (error) {
             console.error('Error fetching artists:', error);
+            setError(error.message);
+        } finally {
             setLoading(false);
         }
     };
@@ -32,6 +35,28 @@ const Artists = () => {
     useEffect(() => {
         fetchArtists();
     }, []);
+
+    if (loading) {
+        return (
+        <div className="flex min-h-screen">
+            <RingLoader
+                color="#000000"
+                size={150}
+                className="m-auto"
+            />
+        </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex min-h-screen px-32">
+                <div className="m-auto text-center font-normal text-base text-red-600">
+                    Уучлаарай, техникийн алдаа гарлаа: {error}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto px-4 py-32">
