@@ -14,6 +14,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isNext, setIsNext] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -22,7 +23,27 @@ const Products = () => {
             try {
                 setLoading(true);
                 const response = await axios.get(`http://localhost:8000/products?page=${pageNumber}`);
-                setProducts(response.data.results);
+                setProducts(prevProducts => {
+                    const allProducts = [...prevProducts, ...response.data.results];
+
+                    const seenIds = new Set();
+
+                    return allProducts.filter(product => {
+                        if (seenIds.has(product.id)) {
+                            return false;
+                        }
+
+                        seenIds.add(product.id);
+                        return true;
+                    });
+                });
+
+                if (response.data.next) {
+                    setIsNext(true);
+                } else {
+                    setIsNext(false);
+                }
+
             } catch (error) {
                 console.error('Error fetching products:', error);
                 setError(error.message);
@@ -33,10 +54,6 @@ const Products = () => {
 
         fetchProducts(currentPage);
     }, [currentPage]);
-
-    /* const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };*/
 
     if (loading) {
         return (
@@ -70,7 +87,7 @@ const Products = () => {
                         className="bg-white shadow-2xl overflow-hidden relative group hover:cursor-pointer">
                         
                         <div className="relative">
-                            <img 
+                            <img
                                 src={product.image}
                                 alt={product.title}
                                 className="w-full h-64 object-cover" />
@@ -86,6 +103,12 @@ const Products = () => {
                     </div>
                 ))}
             </div>
+            
+            { isNext &&
+            (<p className="py-8 text-xl font-light hover:cursor-pointer" onClick={() => setCurrentPage(prevPage => prevPage + 1)}>
+                Цааш үзэх <i className="bi bi-chevron-double-right"></i>
+            </p>)
+            }
         </div>
     );
 
